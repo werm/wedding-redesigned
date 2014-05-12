@@ -1,0 +1,73 @@
+<!-- TIMELINE SECTION -->
+<section id="timeline" name="timeline"></section>
+<div id="timelinewrap">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8-offset-2 centered">
+        <h1>A BRIED HISTORY</h1>
+        <h3>Of Craig &amp; Nicole</h3>
+      </div><!-- /col-lg-8 -->
+    </div><!--/row -->
+
+{{!--     <div class="row">
+      <div class="col-md-6 story-form">
+        <div class="form-group">
+          <input type="text" class="form-control icon" placeholder="Icon" />
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control title" placeholder="Title" />
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control time" placeholder="Time" />
+        </div>
+        <div class="form-group">
+          <textarea name="content" id="content" cols="30" rows="10" class="form-control content" placeholder="Content"></textarea>
+        </div>
+        <div class="form-group">
+          <button class="btn btn-default" id="submitTimeline">Submit</button>
+        </div>
+      </div>
+    </div> --}}
+
+    <div class="container-fluid timeline-container">
+      <div class="page-header">
+        <h1 id="timeline">Timeline</h1>
+      </div>
+      <ul class="timeline">
+      {{#each stories}}
+        <li>
+          <div class="timeline-badge"><i class="icon-{{this.icon}}"></i></div>
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+              <h4 class="timeline-title">{{title}}</h4>
+              <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> {{ this.time }}</small></p>
+            </div>
+            <div class="timeline-body">
+              <p>{{{this.content}}}</p>
+            </div>
+          </div>
+        </li>
+      {{/each}}
+      </ul>
+{{!--       {{#each stories}}
+      <ul class="timeline">
+        <li>
+          <div class="timeline-badge"><i class="icon-{{this.icon}}"></i></div>
+          <div class="timeline-panel">
+          <div class="timeline-heading">
+            <h4 class="timeline-title">
+              <button type="button" class="close deleteStory" data-story-id="{{this.id}}" aria-hidden="true">&times;</button>
+              {{title}}</h4>
+            <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> {{ this.time }}</small></p>
+          </div>
+          <div class="timeline-body">
+            <p>{{{this.content}}}</p>
+          </div>
+          </div>
+          </div>
+        </li>
+      </ul>
+      {{/each}} --}}
+    </div>
+  </div>
+</div>
