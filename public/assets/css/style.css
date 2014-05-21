@@ -74,7 +74,6 @@ body {
     font-weight: 400;
     font-size: 16px;
     color: #000;
-
     -webkit-font-smoothing: antialiased;
     -webkit-overflow-scrolling: touch;
 }
@@ -538,9 +537,14 @@ h1, h2, h3, h4, h5, h6 {
 	position: relative;
 }
 .about {
-	background-image: url(../img/dancing.jpg);
+	background-image: url(../img/dancing.min.jpg);
 }
-
+.sep.tl {
+  background-image: url(../img/park.min.jpg);
+}
+.details {
+  background-image: url(../img/halloween.min.jpg);
+}
 /* Details Wrap */
 .venue h3 {
   font-size: 2em;
@@ -706,4 +710,13 @@ h1, h2, h3, h4, h5, h6 {
 
 .desc {
 	margin-top: 25px;
+}
+
+
+#detailwrap, #userForm {
+  padding-bottom: 60px;
+}
+
+#userForm {
+  padding-top: 60px;
 }

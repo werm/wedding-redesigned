@@ -32,6 +32,30 @@
     });
   });
 
+  $(document).on('click', '#submitUser', function(){
+    var user = {
+      username: $('.username').val(),
+      email: $('.email').val(),
+      password: $('.password').val()
+    }
+    $.ajax({
+      url: '/user/create',
+      type: 'POST',
+      data: user,
+      dataType: 'JSON',
+      success: function(data){
+        console.log("success");
+        $('.user-form input').each(function(){
+          $(this).val('');
+        });
+      },
+      error: function(jqXHR, status, thrownError) {
+        var responseText = jQuery.parseJSON(jqXHR.responseText);
+        console.log(responseText);
+      }
+    });
+  });
+
   $(document).on('click', '.deleteStory', function(){
     var storyId = $(this).data('story-id');
     $.ajax({
@@ -68,24 +92,18 @@
 })(jQuery)
 
 $(window).load(function(){
-  // Get timeline via ajax since handlebars is doing some weird shit.
-  // $.get('/timeline', function(stories){
-  //   $.each(stories, function(k, v){
-  //     console.log(v)
-  //     $('.timeline').append('<li>' +
-  //       '<div class="timeline-badge"><i class="icon-' + v.icon + '"></i></div>' +
-  //       '<div class="timeline-panel">' +
-  //       '<div class="timeline-heading">' +
-  //       '<h4 class="timeline-title">' + v.title +
-  //       '<button type="button" class="close deleteStory" data-story-id="' + v.id + '" aria-hidden="true">&times;</button>' +
-  //       '</h4>' +
-  //       '<p><small class="text-muted"><i class="glyphicon glyphicon-time"></i>' + v.time + '</small></p></div>' +
-  //       '<div class="timeline-body">' +
-  //       '<p>' + v.content + '</p>' +
-  //       '</div></div></div>' +
-  //     '</li>')
-  //   });
-  // });
+
+  var calendarTemplate = _.template( $('#template-calendar').html() );
+
+  $('#calendar').clndr({
+    render: function(data) {
+      return calendarTemplate(data);
+    },
+    startWithMonth: "2015-05-01",
+    events: [
+        { date: '2015-05-09', title: 'WEDDING!' }
+      ],
+  });
 
   $.stellar({
     horizontalScrolling: false,

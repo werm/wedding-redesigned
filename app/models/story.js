@@ -10,14 +10,3 @@ var StorySchema = new Schema({
 
 mongoose.model('Story', StorySchema);
 
-// StorySchema.virtual('date')
-//   .get(function(){
-//     return this._id.getTimestamp();
-//   });
-
-// var kitty = new Cat({ name: 'Zildjian' });
-// kitty.save(function (err) {
-//   if (err) // ...
-//   console.log('meow');
-// });
-
